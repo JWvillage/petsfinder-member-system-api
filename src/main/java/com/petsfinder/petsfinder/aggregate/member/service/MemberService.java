@@ -3,20 +3,18 @@ package com.petsfinder.petsfinder.aggregate.member.service;
 import com.petsfinder.petsfinder.entity.member.vo.MemberEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MemberService {
 
+    // Admin에서 사용할 Service
     List<MemberEntity> getMembers();
 
-    MemberEntity retrieveId(String memberId);
+    String idCheck(String memberId);
 
-    MemberEntity retrieveName(String memberName);
+    Map<String, String> idOrPasswordSearch(String requestMemberData, String searchField);
+    
+    Map<String, String> registration(String requestMember);
 
-    MemberEntity idSearch(String memberName, String memberEmail);
-
-    MemberEntity pwSearch(String memberId, String memberName, String memberEmail);
-
-    void registration(MemberEntity memberEntity);
-
-    MemberEntity login(String memberId, String memberPass);
+    Map<String, String> login(String requestMember);
 }
